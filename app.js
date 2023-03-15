@@ -1,4 +1,6 @@
 console.log('Welcome to Rock, Paper, Scissors! Choose your weapon...')
+let playerScore = 0
+let cpuScore = 0
 
 const getComputerChoice = () =>{
     const RPS = ['rock', 'paper', 'scissors'];
@@ -7,26 +9,32 @@ const getComputerChoice = () =>{
     return (RPS[randomNum]);
 }
 
-// const playerSelection = (choice) => {
-//   choice = choice.toLowerCase();
-//   //makes player input lowercase
-//   if (typeof choice !== 'string' || !['rock', 'paper', 'scissors'].includes(choice)) {
-//     console.log("Please enter Rock, Paper, or Scissors!");
-//     return false;
-//   }
-//   return choice;
-// }
-
-const playRound = (playerSelection, computerSelection)=>{
+const playRound = (playerSelection)=>{
     playerSelection = playerSelection.toLowerCase();
-    computerSelection = getComputerChoice();
+    const computerSelection = getComputerChoice();
     if (playerSelection === 'rock' && computerSelection === 'scissors'){
+        playerScore++
         return 'You win! Rock beats Scissors!';
     } else if (playerSelection === 'paper' && computerSelection === 'rock'){
+        playerScore++
         return 'You win! Paper beats Rock!';
     } else if (playerSelection === 'scissors' && computerSelection === 'paper'){
+        playerScore++
         return 'You win! Scissors beats Paper!';
+    } else if (playerSelection === computerSelection){
+        return "It's a tie!"
     } else {
+        cpuScore++
         return `${playerSelection} beats ${computerSelection}... You lose.`
     }
+}
+
+const game = ()=>{
+    for (let i=0; i<5;i++){
+        const playerSelection = prompt('Enter your weapon of choice...Will it be Rock? Paper perhaps? Daring for Scissors?')
+        const result = playRound(playerSelection);
+        console.log(result);
+    }
+    console.log(`Your score: ${playerScore}`);
+    console.log(`CPU's score: ${cpuScore}`);
 }
