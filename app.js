@@ -1,3 +1,5 @@
+console.log('Welcome to Rock, Paper, Scissors! Choose your weapon...')
+
 const getComputerChoice = () =>{
     const RPS = ['rock', 'paper', 'scissors'];
     const randomNum = Math.floor(Math.random() * 3);
