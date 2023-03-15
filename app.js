@@ -1,4 +1,4 @@
-console.log('Welcome to Rock, Paper, Scissors! Choose your weapon...')
+console.log('Welcome to Rock, Paper, Scissors! To begin, enter "game()"')
 let playerScore = 0
 let cpuScore = 0
 
@@ -37,4 +37,11 @@ const game = ()=>{
     }
     console.log(`Your score: ${playerScore}`);
     console.log(`CPU's score: ${cpuScore}`);
+    if (playerScore > cpuScore){
+        return 'congrats, you win!'
+    } else if (playerScore = cpuScore){
+        return "It's a tie! Better than losing I guess?"
+    } else{
+        return "You lose + L + ratio + you're bald"
+    }
 }
