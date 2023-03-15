@@ -5,9 +5,12 @@ const getComputerChoice = () =>{
     console.log(RPS[randomNum])
 }
 
-const playerSelection = (choice)=>{
-    while (typeof choice !== 'string' ){
-        console.log("Please enter Rock, Paper, or Scissors!")
-        return false;
+const playerSelection = (choice) => {
+    choice = choice.toLowerCase();
+    //makes player input lowercase
+    if (typeof choice !== 'string' || !['rock', 'paper', 'scissors'].includes(choice)) {
+      console.log("Please enter Rock, Paper, or Scissors!");
+      return false;
     }
-}
+    return choice;
+  }
